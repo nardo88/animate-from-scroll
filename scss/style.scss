@@ -1,0 +1,281 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.bg{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+}
+
+.bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bg:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .1);
+}
+
+.container{
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.header {
+    height: 100vh;
+
+    // .header__wrapper
+
+    &__wrapper {
+        padding-top: 53%;
+    }
+
+    // .header__title
+
+    &__title {
+        font-size: 50px;
+        color: #fff;
+
+        transform: translateY(100%);
+        opacity: 0;
+        transition: .8s;
+
+        &._active {
+
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    // .header__subtitle
+
+    &__subtitle {
+        color: #fff;
+        font-size: 25px;
+        margin-top: 15px;
+
+        transform: translateY(100%);
+        opacity: 0;
+        transition: .8s;
+
+        &._active {
+            opacity: 1;
+            transform: translateY(0);
+            // transition: .8s ease .4s; - .4s - это delay - задержка 
+            transition: .8s ease .4s;
+            
+        }
+
+    }
+}
+
+
+.text {
+    background-color: rgb(61, 53, 53);
+    padding: 50px 0;
+
+    // .text__wrapper
+
+    &__wrapper {
+    }
+
+    // .text__title
+
+    &__title {
+        font-size: 35px;
+        color: #fff;
+        margin-bottom: 40px;
+    }
+
+    // .text__content
+
+    &__content {
+        color: #fff;
+        font-size: 18px;
+        margin-bottom: 25px;
+    }
+
+    &__container{
+        overflow: hidden;
+    }
+}
+
+
+.cards {
+    background-color: rgb(114, 68, 68);
+
+    // .cards__wrapper
+
+    &__wrapper {
+        padding: 35px 0 90px;
+    }
+
+    // .cards__title
+
+    &__title {
+        color: #fff;
+        font-size: 35px;
+        margin-bottom: 40px;
+    }
+
+    // .cards__content
+
+    &__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.card {
+    width: 23%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    // .card__img
+
+    &__img {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        overflow: hidden;
+
+        // настройки анимации
+        transform: scale(0);
+        transition: .8s;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &._active{
+            transform: scale(1);
+
+        }
+    }
+
+    // .card__description
+
+    &__description {
+        text-align: center;
+        color: #fff;
+        font-size: 18px;
+        margin-top: 20px;
+
+        transform: translateY(100%);
+        transition: .8s ease .4s;
+        opacity: 0;
+
+        &._active{
+            transform: translateY(0%);
+            opacity: 1;
+
+        }
+
+    }
+}
+
+
+.list {
+    background-color: rgb(61, 53, 53);
+    padding: 50px 0;
+
+    // .list__wrapper
+
+    &__wrapper {
+    }
+
+    // .list__title
+
+    &__title {
+        color: #fff;
+        font-size: 35px;
+        margin-bottom: 40px;
+    }
+
+    // .list__content
+
+    &__content {
+        list-style-type: none;
+        overflow: hidden;
+
+        &._active {
+            li {
+                transform: translateX(0%);
+                &:nth-child(1){
+                    transition: .6s ease 0s;
+                }
+                &:nth-child(2){
+                    transition: .6s ease .2s;
+                }
+                &:nth-child(3){
+                    transition: .6s ease .4s;
+                }
+                &:nth-child(4){
+                    transition: .6s ease .6s;
+                }
+                &:nth-child(5){
+                    transition: .6s ease .8s;
+                }
+
+            }
+        }
+    }
+
+    // .list__item
+
+    &__item {
+
+        color: #fff;
+        margin-bottom: 20px;
+        padding-left: 40px;
+        position: relative;
+
+        // настройка анимации
+        transform: translateX(-120%);
+        transition: .3s;
+
+        &:before{
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            background-color: rgb(103, 53, 126);
+            border-radius: 50%;
+        }
+    }
+}
+
+
+
+
+._anim-show{
+    transform: translateY(120%);
+    opacity: 0;
+    transition: .8s;
+   
+}
+
+._anim-show._active, ._active ._anim-show{
+    opacity: 1;
+    transform: translateY(0);
+}
