@@ -2,7 +2,7 @@
 
 https://nardo88.github.io/animate-from-scroll/
 
-###JavaScript
+### JavaScript
 
 ```JavaScript
 
